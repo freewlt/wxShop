@@ -6,13 +6,7 @@ Page({
    * 组件的初始数据
    */
   data: {
-    // //图片地址
-    pic: [
-      '/images/index/happy/01.png',
-      '/images/index/happy/02.png',
-      '/images/index/happy/03.png',
-      '/images/index/happy/04.png'
-    ],
+    pic: [],
     autoplay: true,
     interval: 3000,
     duration: 1000,
@@ -22,12 +16,58 @@ Page({
       {txt:'礼券', icon:"/images/index/icon/gift.png"},
       {txt:'砍价', icon:"/images/index/icon/bargain.png"},
       {txt:'专栏', icon:"/images/index/icon/column.png"}
-    ] 
+    ],
+    detail:[],
+    list:[] 
   },
 
   swiperchange: function(e){
     this.setData({
       current: e.detail.current
+    })
+  },
+  onLoad: function(){
+    var that = this;
+    // banner图片
+    wx.request({
+      url: app.globalData.subDomain + '/shop/goods/category/all',
+      success: function(res) {
+        if(res.data.code == 0){
+         that.pic = res.data.data;
+         that.setData({
+            pic: that.pic,
+         });
+        }
+      }
+    })
+    // 商品模板
+    wx.request({
+      url: app.globalData.subDomain + '/shop/subshop/list',
+      success: function(res) {
+        if(res.data.code == 0){
+         that.detail = res.data.data;
+         var arrayDetail = that.detail;
+        var newDetail = arrayDetail.splice(0,4)
+         that.setData({
+              detail: newDetail,
+          });
+        }
+      }
+    })
+    // 全民砍价
+    wx.request({
+      url: app.globalData.subDomain + '/shop/goods/list',
+      success: function(res) {
+        if(res.data.code == 0){
+         that.list = res.data.data;
+         var arrayList = that.list;
+         var newList = arrayList.splice(0,3)
+         console.log(newList)
+         that.setData({
+              list: newList,
+          });
+        }
+      }
     })
   }
  

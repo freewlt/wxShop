@@ -1,23 +1,18 @@
 //app.js
 App({
   onLaunch: function () {
-    var that = this;
-    //获取商品列表
-    wx.request({
-      //url:'https://api.it120.cc/itapi/shop/subshop/list',
-      url: 'https://api.it120.cc/' + that.globalData.subDomain + '/shop/subshop/list',
-      data: {
-
-      },
-      success: function(res) {
-        console.log(res)
-        if(res.data.code == 0){
-          console.log(2)
-        }
-      }
-    })
-
-
+    // var that = this;
+    // //获取商品列表
+    // wx.request({
+    //   url:  that.globalData.subDomain + '/shop/subshop/list',
+    //   data: {},
+    //   success: function(res) {
+    //     console.log(res)
+    //     if(res.data.code == 0){
+    //       that.globalData.kanjiaList = res.data.data.result;
+    //     }
+    //   }
+    // })
 
 
     // 展示本地存储能力
@@ -56,7 +51,7 @@ App({
   },
   globalData:{
     userInfo:null,
-    subDomain: "itapi", // 如果你的域名是： https://api.it120.cc/itapi 那么这里只要填写 itapi
+    subDomain: "https://api.it120.cc/itapi", // 如果你的域名是： https://api.it120.cc/itapi 那么这里只要填写 itapi
     appid: "wx0b5fd5d4d5f1dd68",
   }
 })

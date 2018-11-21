@@ -6,7 +6,7 @@
                 duration="{{duration}}" bindchange="swiperchange">
             <block wx:for="{{pic}}" wx:key="id">
                 <swiper-item>
-                    <image src="{{item}}" class="slide-image" data-id="{{item.businessId}}"/>
+                    <image src="{{item.icon}}" class="slide-image" data-id="{{item.businessId}}"/>
                 </swiper-item>
             </block>
         </swiper>
@@ -22,7 +22,45 @@
                 <span class="navTxt">{{item.txt}}</span>
             </navigator>
         </view> 
-     <view class="lineBox"></view>
+        <view class="lineBox"></view>
     </view>
-     <view></view>
+     <view class="shopList">
+         <text class="listTit">模板购买看这里</text>
+         <view class="shopBox">
+            <view class="listBox" wx:for="{{detail}}" wx:key="id">
+                <text class="title"> {{item.name}}</text>
+                <text class="types"> {{item.type}}</text>
+                <text class="feature"> {{item.introduce}}</text>
+                <image class="pic" src="/images/index/happy/01.png" />
+            </view>
+         </view>
+     </view>
+     <view class="lineBox"></view>
+     <view class="shopList shopListBargain">
+         <text class="listTit">全民砍价</text>
+         <view class="shopBox">
+            <view class="listBox" wx:for="{{list}}" wx:key="name">
+                <image class="picBargain" src ="{{item.pic}}"/>
+                <view class="txtBargain">
+                    <text class="nameBargain">{{item.name}}</text>
+                    <text class="typeBargain">{{item.characteristic}}</text>
+                    <view class="priceBargain">
+                        <view class="priceBox">
+                            <text class="price">{{item.minPrice}}</text>
+                            <text class="priceTxt">底价</text>
+                        </view>
+                        <view class="priceBox">
+                            <text class="price">{{item.originalPrice}}</text>
+                            <text class="priceTxt">原价</text>
+                        </view>
+                        <view class="priceBox">
+                            <text class="price">{{item.stores}}</text>
+                            <text class="priceTxt">限量</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+         </view>
+     </view>
+
 </view>
