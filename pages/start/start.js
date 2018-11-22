@@ -17,8 +17,10 @@ Page({
       {txt:'砍价', icon:"/images/index/icon/bargain.png"},
       {txt:'专栏', icon:"/images/index/icon/column.png"}
     ],
-    detail:[],
-    list:[] 
+    detail: [],
+    list: [],
+    selection: [],
+    moods: [],
   },
 
   swiperchange: function(e){
@@ -27,6 +29,7 @@ Page({
     })
   },
   onLoad: function(){
+    
     var that = this;
     // banner图片
     wx.request({
@@ -47,7 +50,7 @@ Page({
         if(res.data.code == 0){
          that.detail = res.data.data;
          var arrayDetail = that.detail;
-        var newDetail = arrayDetail.splice(0,4)
+         var newDetail = arrayDetail.splice(0,4)
          that.setData({
               detail: newDetail,
           });
@@ -60,11 +63,24 @@ Page({
       success: function(res) {
         if(res.data.code == 0){
          that.list = res.data.data;
-         var arrayList = that.list;
-         var newList = arrayList.splice(0,3)
-         console.log(newList)
+         var newList = that.list.splice(3,6);
+         var newSelection = that.list.splice(0,3);
          that.setData({
               list: newList,
+              selection: newSelection,
+          });
+        }
+      }
+    })
+    // 人气推荐
+    wx.request({
+      url: app.globalData.subDomain + '/shop/goods/list',
+      success: function(res) {
+        if(res.data.code == 0){
+         that.list = res.data.data;
+         var newMoods = that.list.splice(1,4)
+         that.setData({
+              moods: newMoods,
           });
         }
       }

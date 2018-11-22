@@ -1,3 +1,6 @@
+<!-- <import src="../moods/moods.wxml"/> -->
+
+
 <!--pages/home/home.wxml-->
 <view class="container">
     <!--轮播图-->
@@ -24,6 +27,7 @@
         </view> 
         <view class="lineBox"></view>
     </view>
+     <!-- 商品模板 -->
      <view class="shopList">
          <text class="listTit">模板购买看这里</text>
          <view class="shopBox">
@@ -36,6 +40,7 @@
          </view>
      </view>
      <view class="lineBox"></view>
+     <!-- 全民砍价 -->
      <view class="shopList shopListBargain">
          <text class="listTit">全民砍价</text>
          <view class="shopBox">
@@ -46,15 +51,15 @@
                     <text class="typeBargain">{{item.characteristic}}</text>
                     <view class="priceBargain">
                         <view class="priceBox">
-                            <text class="price">{{item.minPrice}}</text>
-                            <text class="priceTxt">底价</text>
+                            <text class="price minPrice">￥{{item.minPrice}}</text>
+                            <text class="priceTxt minTxt">底价</text>
                         </view>
                         <view class="priceBox">
-                            <text class="price">{{item.originalPrice}}</text>
+                            <text class="price">￥{{item.originalPrice}}</text>
                             <text class="priceTxt">原价</text>
                         </view>
                         <view class="priceBox">
-                            <text class="price">{{item.stores}}</text>
+                            <text class="price">{{item.stores}}件</text>
                             <text class="priceTxt">限量</text>
                         </view>
                     </view>
@@ -62,5 +67,36 @@
             </view>
          </view>
      </view>
-
+     <view class="lineBox"></view>
+     <!-- 精选专题 -->
+     <view class="shopList">
+        <text class="listTit">精选专题</text>
+          <!--轮播图-->
+        <view class="swiper-container selection">
+            <swiper autoplay="{{autoplay}}" interval="{{interval}}"
+                    duration="{{duration}}" bindchange="swiperchange">
+                <block wx:for="{{selection}}" wx:key="id">
+                    <swiper-item>
+                        <image src="{{item.pic}}" class="slide-image" data-id="{{item.businessId}}"/>
+                        <text class="sectName">{{item.name}}</text>
+                        <text class="sectChar">{{item.characteristic}}</text>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+     </view>
+     <view class="lineBox"></view>
+     <!-- 人气推荐 -->
+     <view class="shopList moods">
+        <text class="listTit">人气推荐</text>
+        <view class="shopBox">
+            <view class="listBox" wx:for="{{moods}}" wx:key="name">
+                <!-- <template is = "moods" data="{{...moods}}"/> -->
+                <image class="picBargain" src ="{{item.pic}}"/>
+                <text class="title"> {{item.name}}</text>
+                <text class="types"> {{item.characteristic}}</text>
+                <text class="price"> ￥{{item.originalPrice}}</text>
+            </view>
+        </view>
+     </view>
 </view>
