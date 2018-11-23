@@ -103,6 +103,19 @@ page{
     font-weight: 500;
     border-bottom: 1rpx solid #f5f5f5;   
 }
+.listTit text{
+    display: inline-block;
+    vertical-align: middle;
+}
+.listTit image{
+    display: inline-block;
+    vertical-align: middle;
+    width: 35rpx;
+    height: 35rpx;
+    padding-left: 10rpx;
+    margin-top: -5rpx;
+
+}
 .shopList .shopBox{
     display: flex;
     justify-content: space-between;

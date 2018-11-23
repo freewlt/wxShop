@@ -29,7 +29,12 @@ Page({
     })
   },
   onLoad: function(){
-    
+    wx.navigateTo({
+           url:'/pages/logs/logs',  //跳转页面的路径，可带参数 ？隔开，不同参数用 & 分隔；相对路径，不需要.wxml后缀
+          success:function(){
+            console.log(3)
+          }        //成功后的回调；
+      })
     var that = this;
     // banner图片
     wx.request({

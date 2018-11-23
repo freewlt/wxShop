@@ -1,0 +1,23 @@
+/* pages/group/group.wxss */
+@import "../start/start.wxss";
+.shopListBargain .shopBox .listBox {    
+    height:260rpx;  
+}  
+.shopListBargain .shopBox .listBox .picBargain {
+    height:222rpx;  
+}
+.money, .num{
+    display: inline!important;
+    padding:0 5rpx 0 8rpx;
+    font-size: 35rpx!important;
+    color: #a0302f;
+}
+.num{
+    font-size: 30rpx!important;
+}
+.moneyLose{
+    display: inline!important;
+    text-decoration:line-through;
+    padding:0 5rpx 0 8rpx;
+}
+    

@@ -3,6 +3,8 @@
     "pages/start/start",
     "pages/index/index",
     "pages/moods/moods",
+    "pages/bargain/bargain",
+    "pages/group/group",
     "pages/logs/logs"
   ],
   "window":{

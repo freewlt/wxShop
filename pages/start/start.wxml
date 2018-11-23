@@ -29,7 +29,10 @@
     </view>
      <!-- 商品模板 -->
      <view class="shopList">
-         <text class="listTit">模板购买看这里</text>
+         <navigator  class="listTit" url="/pages/group/group" hover-class="navigator-hover">
+             <text>模板购买看这里</text>
+             <image src="/images/index/icon/arrow.png" />
+         </navigator>
          <view class="shopBox">
             <view class="listBox" wx:for="{{detail}}" wx:key="id">
                 <text class="title"> {{item.name}}</text>
@@ -42,7 +45,10 @@
      <view class="lineBox"></view>
      <!-- 全民砍价 -->
      <view class="shopList shopListBargain">
-         <text class="listTit">全民砍价</text>
+         <navigator  class="listTit" url="/pages/bargain/bargain" hover-class="navigator-hover">
+             <text>全民砍价</text>
+             <image src="/images/index/icon/arrow.png" />
+         </navigator>
          <view class="shopBox">
             <view class="listBox" wx:for="{{list}}" wx:key="name">
                 <image class="picBargain" src ="{{item.pic}}"/>
@@ -70,7 +76,10 @@
      <view class="lineBox"></view>
      <!-- 精选专题 -->
      <view class="shopList">
-        <text class="listTit">精选专题</text>
+         <view class="listTit">
+             <text>精选专题</text>
+             <image src="/images/index/icon/arrow.png" />
+         </view>
           <!--轮播图-->
         <view class="swiper-container selection">
             <swiper autoplay="{{autoplay}}" interval="{{interval}}"
@@ -88,7 +97,10 @@
      <view class="lineBox"></view>
      <!-- 人气推荐 -->
      <view class="shopList moods">
-        <text class="listTit">人气推荐</text>
+         <view class="listTit">
+             <text>人气推荐</text>
+             <image src="/images/index/icon/arrow.png" />
+         </view>
         <view class="shopBox">
             <view class="listBox" wx:for="{{moods}}" wx:key="name">
                 <!-- <template is = "moods" data="{{...moods}}"/> -->

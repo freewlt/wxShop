@@ -1,0 +1,30 @@
+
+<!--pages/bargain/bargain.wxml-->
+<view class="container">
+     <!-- 全民砍价 -->
+     <view class="shopList shopListBargain">
+         <view class="shopBox">
+            <view class="listBox" wx:for="{{list}}" wx:key="name">
+                <image class="picBargain" src ="{{item.pic}}"/>
+                <view class="txtBargain">
+                    <text class="nameBargain">{{item.name}}</text>
+                    <text class="typeBargain">{{item.characteristic}}</text>
+                    <view class="priceBargain">
+                        <view class="priceBox">
+                            <text class="price minPrice">￥{{item.minPrice}}</text>
+                            <text class="priceTxt minTxt">底价</text>
+                        </view>
+                        <view class="priceBox">
+                            <text class="price">￥{{item.originalPrice}}</text>
+                            <text class="priceTxt">原价</text>
+                        </view>
+                        <view class="priceBox">
+                            <text class="price">{{item.stores}}件</text>
+                            <text class="priceTxt">限量</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+         </view>
+     </view>
+</view>
