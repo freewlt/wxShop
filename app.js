@@ -1,19 +1,6 @@
 //app.js
 App({
   onLaunch: function () {
-    // var that = this;
-    // //获取商品列表
-    // wx.request({
-    //   url:  that.globalData.subDomain + '/shop/subshop/list',
-    //   data: {},
-    //   success: function(res) {
-    //     console.log(res)
-    //     if(res.data.code == 0){
-    //       that.globalData.kanjiaList = res.data.data.result;
-    //     }
-    //   }
-    // })
-
 
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -49,10 +36,10 @@ App({
 
 
   },
-  globalData:{
-    userInfo:null,
-    subDomain: "https://api.it120.cc/itapi", // 如果你的域名是： https://api.it120.cc/itapi 那么这里只要填写 itapi
-    //subDomain: "http://192.168.0.231:8088/api", // 后台域名
-    appid: "wx0b5fd5d4d5f1dd68",
-  }
+  // globalData:{
+  //   userInfo:null,
+  //   subDomain: "https://api.it120.cc/itapi", // 如果你的域名是： https://api.it120.cc/itapi 那么这里只要填写 itapi
+  //   //subDomain: "http://192.168.0.231:8088/api", // 后台域名
+  //   appid: "wx0b5fd5d4d5f1dd68",
+  // }
 })
