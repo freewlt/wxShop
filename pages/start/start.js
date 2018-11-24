@@ -1,4 +1,6 @@
 // pages/home/home.js
+// const api = request('../../config/api.js')
+// 获取应用实例
 var app = getApp();
 Page({
 
@@ -29,13 +31,19 @@ Page({
     })
   },
   onLoad: function(){
-    wx.navigateTo({
-           url:'/pages/logs/logs',  //跳转页面的路径，可带参数 ？隔开，不同参数用 & 分隔；相对路径，不需要.wxml后缀
-          success:function(){
-            console.log(3)
-          }        //成功后的回调；
-      })
     var that = this;
+    // wx.request({
+    //   url: app.globalData.subDomain + '/index/newGoods',
+    //   success: function(res) {
+    //     console.log('pic',res.data.data)
+    //     if(res.data.code == 0){
+    //      that.pic = res.data.data;
+    //      that.setData({
+    //         pic: that.pic,
+    //      });
+    //     }
+    //   }
+    // })
     // banner图片
     wx.request({
       url: app.globalData.subDomain + '/shop/goods/category/all',

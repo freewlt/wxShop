@@ -1,10 +1,11 @@
 /* pages/group/group.wxss */
 @import "../start/start.wxss";
-.shopListBargain .shopBox .listBox {    
-    height:260rpx;  
+.shopListBargain .shopBox .listBox {   
+    position: relative; 
+    height:245rpx;  
 }  
 .shopListBargain .shopBox .listBox .picBargain {
-    height:222rpx;  
+    height:210rpx;  
 }
 .money, .num{
     display: inline!important;
@@ -19,5 +20,15 @@
     display: inline!important;
     text-decoration:line-through;
     padding:0 5rpx 0 8rpx;
+}
+.bargainBtn{
+    position: absolute;
+    right:30rpx;
+    bottom: 25rpx;
+    display: block;
+    padding: 8rpx 20rpx;
+    color: #fff;
+    background: #a0302f;
+    border-radius: 10rpx;
 }
     

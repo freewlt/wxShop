@@ -25,8 +25,8 @@
                 <span class="navTxt">{{item.txt}}</span>
             </navigator>
         </view> 
-        <view class="lineBox"></view>
     </view>
+    <view class="lineBox"></view>
      <!-- 商品模板 -->
      <view class="shopList">
          <navigator  class="listTit" url="/pages/group/group" hover-class="navigator-hover">

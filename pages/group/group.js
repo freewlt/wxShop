@@ -24,6 +24,12 @@ Page({
         }
       }
     })
+  },
+  bargainBtn: function(e){
+    console.log(e)
+    wx.navigateTo({
+      url: '/pages/detail/detail?timeStamp=' + e.timeStamp
+    })
   }
  
 })

@@ -1,0 +1,24 @@
+/* pages/detail/detail.wxss */
+
+@import "/pages/start/start.wxss";
+
+
+.banner swiper {
+    height: 450rpx;
+}
+.bannerName{
+    width: 100%;
+    padding:20rpx 20rpx;
+    background: #fff;
+}
+.bannerName .name{
+    display: block;
+    font-size:30rpx;
+}
+.bannerName .type{
+    color: #999;
+    font-size:24rpx;
+}
+.bargainDetail{
+    background: #a0302f;
+}

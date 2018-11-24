@@ -5,6 +5,7 @@
     "pages/moods/moods",
     "pages/bargain/bargain",
     "pages/group/group",
+    "pages/detail/detail",
     "pages/logs/logs"
   ],
   "window":{

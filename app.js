@@ -52,6 +52,7 @@ App({
   globalData:{
     userInfo:null,
     subDomain: "https://api.it120.cc/itapi", // 如果你的域名是： https://api.it120.cc/itapi 那么这里只要填写 itapi
+    //subDomain: "http://192.168.0.231:8088/api", // 后台域名
     appid: "wx0b5fd5d4d5f1dd68",
   }
 })
