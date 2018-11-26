@@ -1,13 +1,114 @@
-<!--index.wxml-->
+<!-- <import src="../moods/moods.wxml"/> -->
+
+
+<!--pages/index/index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+    <!--轮播图-->
+    <view class="banner swiper-container">
+        <swiper autoplay="{{autoplay}}" interval="{{interval}}"
+                duration="{{duration}}" bindchange="swiperchange">
+            <block wx:for="{{banner}}" wx:key="item.id">
+                <swiper-item>
+                    <image class="slide-image" src="{{item.image_url}}"/>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="dots">  
+            <block wx:for="{{banner}}" wx:key="unique">  
+                <view class="dot{{index == current ? ' active' : ''}}"></view>  
+            </block>  
+        </view> 
+        <!-- 导航 -->
+        <view class="nav">
+            <navigator hover-class="none" url="" wx:for="{{nav}}" wx:key="id">
+                <image class="navPic" src="{{item.icon}}"/>
+                <span class="navTxt">{{item.txt}}</span>
+            </navigator>
+        </view> 
+    </view>
+    <view class="lineBox"></view>
+     <!-- 商品模板 -->
+     <view class="shopList">
+         <navigator  class="listTit" url="/pages/group/group" hover-class="navigator-hover">
+             <text>模板购买看这里</text>
+             <image src="/images/index/icon/arrow.png" />
+         </navigator>
+         <view class="shopBox">
+            <view class="listBox" wx:for="{{brand}}" wx:key="id">
+                <text class="title"> {{item.name}}</text>
+                <text class="types"> {{item.floor_price}}</text>
+                <text class="feature"> {{item.sort_order}}</text>
+                <image class="pic" src="{{item.app_list_pic_url}}" />
+            </view>
+         </view>
+     </view>
+     <view class="lineBox"></view>
+     <!-- 全民砍价 -->
+     <view class="shopList shopListBargain">
+         <navigator  class="listTit" url="/pages/bargain/bargain" hover-class="navigator-hover">
+             <text>全民砍价</text>
+             <image src="/images/index/icon/arrow.png" />
+         </navigator>
+         <view class="shopBox">
+            <view class="listBox" wx:for="{{list}}" wx:key="name">
+                <image class="picBargain" src ="{{item.primary_pic_url}}"/>
+                <view class="txtBargain">
+                    <text class="nameBargain">{{item.name}}</text>
+                    <text class="typeBargain">{{item.goods_brief}}</text>
+                    <view class="priceBargain">
+                        <view class="priceBox">
+                            <text class="price minPrice">￥{{item.retail_price}}</text>
+                            <text class="priceTxt minTxt">底价</text>
+                        </view>
+                        <view class="priceBox">
+                            <text class="price">￥{{item.market_price}}</text>
+                            <text class="priceTxt">原价</text>
+                        </view>
+                        <view class="priceBox">
+                            <text class="price">{{item.goods_number}}件</text>
+                            <text class="priceTxt">限量</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+         </view>
+     </view>
+     <view class="lineBox"></view>
+     <!-- 精选专题 -->
+     <view class="shopList">
+         <view class="listTit">
+             <text>精选专题</text>
+             <image src="/images/index/icon/arrow.png" />
+         </view>
+          <!--轮播图-->
+        <view class="swiper-container selection">
+            <swiper autoplay="{{autoplay}}" interval="{{interval}}"
+                    duration="{{duration}}" bindchange="swiperchange">
+                <block wx:for="{{topics}}" wx:key="id">
+                    <swiper-item>
+                        <image class="slide-image" src="{{item.scene_pic_url}}" data-id="{{item.businessId}}"/>
+                        <text class="sectName">{{item.title}}</text>
+                        <text class="sectChar">{{item.subtitle}}</text>
+                    </swiper-item>
+                </block>
+            </swiper>
+        </view>
+     </view>
+     <view class="lineBox"></view>
+     <!-- 人气推荐 -->
+     <view class="shopList moods">
+         <view class="listTit">
+             <text>人气推荐</text>
+             <image src="/images/index/icon/arrow.png" />
+         </view>
+        <view class="shopBox">
+            <view class="listBox" wx:for="{{hotGoods}}" wx:key="name">
+                <!-- <template is = "moods" data="{{...moods}}"/> -->
+                <image class="picBargain" src ="{{item.list_pic_url}}"/>
+                <text class="title"> {{item.name}}</text>
+                <text class="types"> {{item.goods_brief}}</text>
+                <text class="price"> ￥{{item.retail_price}}</text>
+            </view>
+        </view>
+     </view>
 </view>

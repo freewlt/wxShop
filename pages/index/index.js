@@ -1,56 +1,89 @@
-//index.js
-//获取应用实例
-const app = getApp()
+// pages/index/index.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
 
+// 获取应用实例
+var app = getApp();
 Page({
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    detail:[]
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
 
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+  /**
+   * 组件的初始数据
+   */
+  data: {
+    banner: [],
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    current: 0,
+    nav:[
+      {txt:'签到', icon:"/images/index/icon/star.png"},
+      {txt:'礼券', icon:"/images/index/icon/gift.png"},
+      {txt:'砍价', icon:"/images/index/icon/bargain.png"},
+      {txt:'专栏', icon:"/images/index/icon/column.png"}
+    ],
+    detail: [],
+    topics: [],
+    hotGoods: [],
+    brand: [],
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+
+  swiperchange: function(e){
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      current: e.detail.current
     })
+  },
+  onPullDownRefresh(){
+    // 增加下拉刷新数据的功能
+    var self = this;
+    this.getIndexData();
+  },
+  getIndexData: function () {
+    let  that = this;
+    // 首页banner
+    util.request(api.IndexUrlBanner).then(function (res) {
+      if (res.errno === 0) {
+        var banner = res.data.banner;
+        that.setData({
+          banner: banner,
+        });
+      }
+    });
+    // 模板购买
+    util.request(api.IndexUrlBrand).then(function (res) {
+      if (res.errno === 0) {
+        var brand = res.data.brandList;
+        that.setData({
+          brand: brand,
+        });
+      }
+    });
+    // 专题精选banner
+    util.request(api.IndexUrlTopic).then(function (res) {
+      if (res.errno === 0) {
+        var topics = res.data.topicList;
+        that.setData({
+          topics: topics,
+        });
+      }
+    });
+    // 人气推荐全民砍价
+    util.request(api.IndexUrlHotGoods).then(function (res) {
+      if (res.errno === 0) {
+        var hotGood = res.data.hotGoodsList;
+        var hotGoods = hotGood.splice(1,4);
+        var list = res.data.hotGoodsList.splice(1,4);
+        that.setData({
+          hotGoods: hotGoods,
+          list: list,
+        });
+      }
+    });
+  },
+  onLoad: function(){
+    this.getIndexData();
   }
+ 
 })
+
+
+

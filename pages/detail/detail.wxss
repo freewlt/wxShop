@@ -1,6 +1,6 @@
 /* pages/detail/detail.wxss */
 
-@import "/pages/start/start.wxss";
+@import "/pages/index/index.wxss";
 
 
 .banner swiper {

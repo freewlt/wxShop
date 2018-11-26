@@ -12,9 +12,9 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
-    })
-    // 获取用户信息
-    wx.getSetting({
+    }),
+     // 获取用户信息
+     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
@@ -34,12 +34,10 @@ App({
       }
     })
 
-
   },
-  // globalData:{
-  //   userInfo:null,
-  //   subDomain: "https://api.it120.cc/itapi", // 如果你的域名是： https://api.it120.cc/itapi 那么这里只要填写 itapi
-  //   //subDomain: "http://192.168.0.231:8088/api", // 后台域名
-  //   appid: "wx0b5fd5d4d5f1dd68",
-  // }
+  
+  globalData:{
+    userInfo:null,
+    appid: "wx0b5fd5d4d5f1dd68",
+  }
 })

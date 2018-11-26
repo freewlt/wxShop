@@ -1,4 +1,7 @@
 // pages/detail/detail.js
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
+
 var app = getApp();
 Page({
 
@@ -6,7 +9,7 @@ Page({
    * 组件的初始数据
    */
   data: {
-    pic: [],
+    gallery: [],
     autoplay: true,
     interval: 3000,
     duration: 1000,
@@ -17,24 +20,44 @@ Page({
       current: e.detail.current
     })
   },
-  onLoad: function(options){
-    var that = this;
-    console.log(options.timeStamp);
-    this.setData({
-      timeStamp: options.timeStamp
-    })
-    // banner图片
-    wx.request({
-      url: app.globalData.subDomain + '/shop/goods/category/all',
-      success: function(res) {
-        if(res.data.code == 0){
-         that.pic = res.data.data;
-         that.setData({
-            pic: that.pic,
-         });
-        }
+  onPullDownRefresh(){
+    // 增加下拉刷新数据的功能
+    var self = this;
+    this.getIndexData();
+  },
+  getIndexData: function () {
+    let that = this;
+    
+    // 首页banner
+    // util.request(api.GoodsDetail, { id: that.data.id }).then(function (res) {
+    //   if (res.errno === 0) {
+    //     console.log(res)
+    //     console.log(res.data.gallery)
+    //     that.setData({
+    //       gallery: res.data.gallery,
+    //     });
+       
+    //   }
+    // });
+    util.request(api.GoodsDetail, { id: that.data.id }).then(function (res) {
+      console.log(res)
+      if (res.errno === 0) {
+        var list = res;
+        that.setData({
+          gallery: list,
+        });
       }
+    });
+  },
+  onLoad: function(options){
+    console.log(options)
+    this.setData({
+      id: options.id
     })
+    this.getIndexData();
+    
+
+ 
     
   }
  

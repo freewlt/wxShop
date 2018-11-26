@@ -40,7 +40,7 @@ function request(url, data = {}, method = "POST", header = "application/x-www-fo
 
                     if (res.data.errno == 401) {
                         wx.navigateTo({
-                            url: '/pages/auth/btnAuth/btnAuth',
+                            url: '/pages/index/index',
                         })
                     } else {
                         resolve(res.data);
@@ -98,7 +98,7 @@ function redirect(url) {
     //判断页面是否需要登录
     if (false) {
         wx.redirectTo({
-            url: '/pages/auth/login/login'
+            url: '/pages/login/login'
         });
         return false;
     } else {

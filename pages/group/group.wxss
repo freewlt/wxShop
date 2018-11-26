@@ -1,5 +1,6 @@
 /* pages/group/group.wxss */
-@import "../start/start.wxss";
+@import "../index/index.wxss";
+
 .shopListBargain .shopBox .listBox {   
     position: relative; 
     height:245rpx;  

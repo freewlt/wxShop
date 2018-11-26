@@ -11,29 +11,21 @@ Page({
   data: {
     list: [],
   },
-
-  onLoad: function(){
+  getIndexData: function(){
     var that = this;
     // 全民砍价
-    wx.request({
-      // url: app.globalData.subDomain + '/shop/goods/list',
-      url: api.IndexUrlBanner,
-      success: function(res) {
-        if(res.data.code == 0){
-         that.list = res.data.data;
-         var newList = that.list;
-         that.setData({
-              list: newList,
-          });
-        }
+    util.request(api.GoodsList).then(function (res) {
+      if (res.errno === 0) {
+        var list = res.data.goodsList;
+        that.setData({
+          list: list,
+        });
       }
-    })
+    });
   },
-  bargainBtn: function(e){
-    console.log(e)
-    wx.navigateTo({
-      url: '/pages/detail/detail?timeStamp=' + e.timeStamp
-    })
+  
+  onLoad: function(){
+    this.getIndexData();
   }
  
 })

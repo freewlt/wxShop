@@ -1,7 +1,0 @@
-<!--pages/moods/moods.wxml-->
-<template name="moods">
-     <!-- 精选专题 -->
-    <text class="title"> {{name}}</text>
-    <text class="types"> {{characteristic}}</text>
-    <text class="feature"> {{originalPrice}}</text>
-</template>

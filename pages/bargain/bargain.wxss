@@ -1,2 +1,2 @@
 /* pages/bargain/bargain.wxss */
-@import "../start/start.wxss";
+@import "../index/index.wxss";

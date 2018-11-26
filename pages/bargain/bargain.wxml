@@ -5,21 +5,21 @@
      <view class="shopList shopListBargain">
          <view class="shopBox">
             <view class="listBox" wx:for="{{list}}" wx:key="name">
-                <image class="picBargain" src ="{{item.pic}}"/>
+                <image class="picBargain" src ="{{item.primary_pic_url}}"/>
                 <view class="txtBargain">
                     <text class="nameBargain">{{item.name}}</text>
-                    <text class="typeBargain">{{item.characteristic}}</text>
+                    <text class="typeBargain">{{item.goods_brief}}</text>
                     <view class="priceBargain">
                         <view class="priceBox">
-                            <text class="price minPrice">￥{{item.minPrice}}</text>
+                            <text class="price minPrice">￥{{item.retail_price}}</text>
                             <text class="priceTxt minTxt">底价</text>
                         </view>
                         <view class="priceBox">
-                            <text class="price">￥{{item.originalPrice}}</text>
+                            <text class="price">￥{{item.market_price}}</text>
                             <text class="priceTxt">原价</text>
                         </view>
                         <view class="priceBox">
-                            <text class="price">{{item.stores}}件</text>
+                            <text class="price">{{item.goods_number}}件</text>
                             <text class="priceTxt">限量</text>
                         </view>
                     </view>
@@ -28,3 +28,5 @@
          </view>
      </view>
 </view>
+
+
