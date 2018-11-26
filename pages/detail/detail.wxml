@@ -21,6 +21,8 @@
             <text class="type">{{timeStamp}}</text>
         </view> 
     </view>
-    <view class="bargainDetail"></view>
+    <view class="bargainDetail">
+        <view><text>拼团价￥</text></view>
+    </view>
      <view class="lineBox"></view>
 </view>

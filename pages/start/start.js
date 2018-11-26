@@ -32,18 +32,6 @@ Page({
   },
   onLoad: function(){
     var that = this;
-    // wx.request({
-    //   url: app.globalData.subDomain + '/index/newGoods',
-    //   success: function(res) {
-    //     console.log('pic',res.data.data)
-    //     if(res.data.code == 0){
-    //      that.pic = res.data.data;
-    //      that.setData({
-    //         pic: that.pic,
-    //      });
-    //     }
-    //   }
-    // })
     // banner图片
     wx.request({
       url: app.globalData.subDomain + '/shop/goods/category/all',
