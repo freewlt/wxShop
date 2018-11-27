@@ -7,7 +7,7 @@
     <view class="banner swiper-container">
         <swiper autoplay="{{autoplay}}" interval="{{interval}}"
                 duration="{{duration}}" bindchange="swiperchange">
-            <block wx:for="{{banner}}" wx:key="item.id">
+            <block wx:for="{{banner}}" wx:key="id">
                 <swiper-item>
                     <image class="slide-image" src="{{item.image_url}}"/>
                 </swiper-item>

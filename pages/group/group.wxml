@@ -5,7 +5,7 @@
          <view class="shopBox">
             <block wx:for="{{list}}" wx:key="name">
                 <view class="listBox">
-                    <image class="picBargain" src ="{{item.primary_pic_url}}"/>
+                    <image class="picBargain" src ="{{item.list_pic_url}}"/>
                     <view class="txtBargain">
                         <text class="nameBargain">{{item.name}}</text>
                         <text class="typeBargain">{{item.goods_brief}}</text>
@@ -13,9 +13,9 @@
                         <view class="typeBargain">单独购买<text class="moneyLose">￥{{item.market_price}}</text></view>
                         <view class="typeBargain">2人团￥<text class="money">{{item.retail_price}}</text></view>
                     </view>
-                    <navigator url="/pages/detail/detail?id={{item.id}}">
+                    <view bindtap="barginBtn" data-id="{{item.id}}">
                         <text class="bargainBtn">去拼团 </text>
-                    </navigator>
+                    </view>
                 </view>
             </block>
          </view>

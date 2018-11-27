@@ -6,22 +6,46 @@
         <swiper autoplay="{{autoplay}}" interval="{{interval}}"
                 duration="{{duration}}" bindchange="swiperchange">
             <block wx:for="{{relatedGoods}}" wx:key="{{item.id}}">
+            <!-- <block class="swiper" url="/pages/detail/detail"> -->
                 <swiper-item>
-                    <image src="{{item.list_pic_url}}" class="slide-image" data-id="{{item.businessId}}"/>
+                    <image src="{{item.list_pic_url}}" class="slide-image"/>
                 </swiper-item>
             </block>
-        </swiper>
-        <view class="dots">  
+        </swiper> 
+       <view class="dots">  
             <block wx:for="{{relatedGoods}}" wx:key="unique">  
                 <view class="dot{{index == current ? ' active' : ''}}"></view>  
             </block>  
         </view> 
         <view class="bannerName">
-            <text class="name">{{name}}</text>
-            <text class="type">{{id}}</text>
-            <image src="{{image_url}}" class="slide-image"/>
+            <text class="name">{{id}}</text>
+            <text class="type">{{current}}</text>
         </view> 
     </view>
-    <view class="bargainDetail"></view>
-     <view class="lineBox"></view>
+    <view class="bargainDetail">
+        <view class="minPrice">拼团价￥<text class="price">{{id}}</text></view>
+        <view class="center">
+            <text class="peopleNum">{{current}}人开团</text>
+            <text class="sourcePrice">原价￥{{current}}54643</text>
+        </view>
+        <view class="num">已团<text>{{id}}件</text></view>
+    </view>
+     <view class="lineBox doubleLineBox"></view>
+     <!-- 拼团流程 -->
+     <view class="flow">
+         <text class="title">拼团流程</text>
+            <view class="flowStep" >
+                <view class="flowBlock" wx:for="{{flowStep}}" wx:key="">
+                    <image class="picStep" src="{{item.picStep}}" />
+                    <text class="txtStep">{{item.txtStep}}</text>
+                </view>
+            </view>
+     </view>
+     <view class="lineBox doubleLineBox"></view>
+     <!-- 拼团流程 -->
+     <view class="flow choosespe" bindtap="choosespe">
+         <text class="title">选择规格：{{chooseTitle}}</text>
+         <image class="arrow" src="/images/index/icon/arrow.png" />
+     </view>
+     <view class="lineBox doubleLineBox"></view>
 </view>

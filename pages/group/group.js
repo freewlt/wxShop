@@ -23,7 +23,13 @@ Page({
       }
     });
   },
-  
+  barginBtn: function(e){
+    var that = this;
+    var id = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../../pages/detail/detail?id=' + id
+      })
+  },
   onLoad: function(){
     this.getIndexData();
   }

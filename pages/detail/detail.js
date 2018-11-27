@@ -14,6 +14,13 @@ Page({
     interval: 3000,
     duration: 1000,
     current: 0,
+    flowStep:[
+      {picStep:'/images/flow/01.png', txtStep:'支付开团或参团'},
+      {picStep:'/images/flow/02.png', txtStep:'邀请好友一起拼团'},
+      {picStep:'/images/flow/03.png', txtStep:'达到人数分别发货'},
+      {picStep:'/images/flow/04.png', txtStep:'人数不够自动退款'}
+    ],
+    chooseTitle:'选择版本  选择规格'
   },
   swiperchange: function(e){
     this.setData({
@@ -30,24 +37,22 @@ Page({
     
     // 列表详情
     util.request(api.GoodsRelated, { id: that.data.id }).then(function (res) {
-      console.log(res.data)
+      var relatedGood = res.data.goodsList;
       if (res.errno === 0) {
-        that.setData({
-          relatedGoods: res.data.goodsList,
-        });
+          that.setData({
+            relatedGoods: res.data.goodsList
+          });
       }
     });
+  },
+  choosespe: function(){
     
   },
   onLoad: function(options){
     this.setData({
-      id: parseInt(options.id)
+      id: options.id
     })
     this.getIndexData();
-    
-
- 
-    
   }
  
 })
