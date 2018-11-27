@@ -9,7 +9,7 @@ Page({
    * 组件的初始数据
    */
   data: {
-    gallery: [],
+    relatedGoods: [],
     autoplay: true,
     interval: 3000,
     duration: 1000,
@@ -28,31 +28,20 @@ Page({
   getIndexData: function () {
     let that = this;
     
-    // 首页banner
-    // util.request(api.GoodsDetail, { id: that.data.id }).then(function (res) {
-    //   if (res.errno === 0) {
-    //     console.log(res)
-    //     console.log(res.data.gallery)
-    //     that.setData({
-    //       gallery: res.data.gallery,
-    //     });
-       
-    //   }
-    // });
-    util.request(api.GoodsDetail, { id: that.data.id }).then(function (res) {
-      console.log(res)
+    // 列表详情
+    util.request(api.GoodsRelated, { id: that.data.id }).then(function (res) {
+      console.log(res.data)
       if (res.errno === 0) {
-        var list = res;
         that.setData({
-          gallery: list,
+          relatedGoods: res.data.goodsList,
         });
       }
     });
+    
   },
   onLoad: function(options){
-    console.log(options)
     this.setData({
-      id: options.id
+      id: parseInt(options.id)
     })
     this.getIndexData();
     

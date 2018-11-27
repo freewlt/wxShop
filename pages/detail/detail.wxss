@@ -22,3 +22,8 @@
 .bargainDetail{
     background: #a0302f;
 }
+
+
+.swiper-container .dots .dot {
+    background:#00f;
+}
