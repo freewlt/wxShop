@@ -17,8 +17,8 @@
             </block>  
         </view> 
         <view class="bannerName">
-            <text class="name">{{timeStamp}}</text>
-            <text class="type">{{timeStamp}}</text>
+            <text class="name">{{id}}</text>
+            <text class="type">{{id}}</text>
         </view> 
     </view>
     <view class="bargainDetail">

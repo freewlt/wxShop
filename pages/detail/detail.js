@@ -19,9 +19,9 @@ Page({
   },
   onLoad: function(options){
     var that = this;
-    console.log(options.timeStamp);
+    console.log(options);
     this.setData({
-      timeStamp: options.timeStamp
+      id: options.id
     })
     // banner图片
     wx.request({
