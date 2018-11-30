@@ -1,11 +1,12 @@
 <!--pages/detail/detail.wxml-->
+<import src="../template/dialog.wxml"></import>
 
 <view class="container">
     <!--轮播图-->
     <view class="banner swiper-container">
         <swiper autoplay="{{autoplay}}" interval="{{interval}}"
                 duration="{{duration}}" bindchange="swiperchange">
-            <block wx:for="{{relatedGoods}}" wx:key="{{item.id}}">
+            <block wx:for="{{relatedGoods}}" wx:key="{{id}}">
             <!-- <block class="swiper" url="/pages/detail/detail"> -->
                 <swiper-item>
                     <image src="{{item.list_pic_url}}" class="slide-image"/>
@@ -48,4 +49,12 @@
          <image class="arrow" src="/images/index/icon/arrow.png" />
      </view>
      <view class="lineBox doubleLineBox"></view>
+</view>
+
+<!-- 弹窗 -->
+<view class="isShow" animation="{{animationData}}"></view>
+<view class="shopBox">
+    <view class="listBox" wx:for="{{relatedGoods}}" wx:key="{{id}}">
+        <template is="dialog" data="{{...relatedGoods}}"></template>
+    </view>
 </view>

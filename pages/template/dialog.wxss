@@ -1,0 +1,4 @@
+/* pages/template/dialog.wxss */
+
+@import '/pages/index/index.wxss';
+.a{display: block;font-size: 30rpx;}

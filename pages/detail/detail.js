@@ -20,7 +20,8 @@ Page({
       {picStep:'/images/flow/03.png', txtStep:'达到人数分别发货'},
       {picStep:'/images/flow/04.png', txtStep:'人数不够自动退款'}
     ],
-    chooseTitle:'选择版本  选择规格'
+    chooseTitle:'选择版本  选择规格',
+    animationData:{}
   },
   swiperchange: function(e){
     this.setData({

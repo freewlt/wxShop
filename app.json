@@ -1,41 +1,48 @@
 {
-  "pages":[
+  "pages": [
     "pages/detail/detail",
     "pages/login/login",
     "pages/index/index",
     "pages/bargain/bargain",
     "pages/group/group",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/template",
+    "pages/template/dialog"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor":"#e64340",
+    "selectedColor": "#e64340",
     "backgroundColor": "#fff",
-    "list":[{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/nav/home-off.png",
-      "selectedIconPath": "images/nav/home-on.png"
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "分类",
-      "iconPath": "images/nav/order-off.png",
-      "selectedIconPath": "images/nav/order-on.png"
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "购物车",
-      "iconPath": "images/nav/cart-off.png",
-      "selectedIconPath": "images/nav/cart-on.png"
-    },{
-      "pagePath": "pages/logs/logs",
-      "text": "个人",
-      "iconPath": "images/nav/my-off.png",
-      "selectedIconPath": "images/nav/my-on.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/nav/home-off.png",
+        "selectedIconPath": "images/nav/home-on.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "分类",
+        "iconPath": "images/nav/order-off.png",
+        "selectedIconPath": "images/nav/order-on.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "购物车",
+        "iconPath": "images/nav/cart-off.png",
+        "selectedIconPath": "images/nav/cart-on.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "个人",
+        "iconPath": "images/nav/my-off.png",
+        "selectedIconPath": "images/nav/my-on.png"
+      }
+    ]
   }
 }

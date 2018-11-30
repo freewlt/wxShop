@@ -1,0 +1,9 @@
+<!--pages/template/dialog.wxml-->
+<template name="dialog">
+<text class="a">pages/template/dialog.wxml</text>
+   <image class="picBargain" src ="{{item.list_pic_url}}"/>
+    <view class="txtBargain">
+        <text class="nameBargain">{{item.id}}}</text>
+        <text class="typeBargain">5</text>
+    </view>
+</template>
