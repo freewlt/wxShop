@@ -183,6 +183,9 @@ page{
 .shopListBargain .shopBox .listBox .txtBargain{
     width: 55%;
     padding-left: 20rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .shopListBargain .shopBox .listBox .txtBargain .nameBargain{
     color: #333;

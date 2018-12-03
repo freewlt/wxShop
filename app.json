@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/detail/detail",
     "pages/login/login",
     "pages/index/index",
     "pages/bargain/bargain",
     "pages/group/group",
+    "pages/detail/detail",
+    "pages/cart/cart",
     "pages/logs/logs",
     "pages/template",
     "pages/template/dialog"

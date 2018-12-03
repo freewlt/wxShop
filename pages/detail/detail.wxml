@@ -1,5 +1,5 @@
 <!--pages/detail/detail.wxml-->
-<import src="../template/dialog.wxml"></import>
+<!-- <import src="../template/dialog.wxml"></import> -->
 
 <view class="container">
     <!--轮播图-->
@@ -52,9 +52,30 @@
 </view>
 
 <!-- 弹窗 -->
-<view class="isShow" animation="{{animationData}}"></view>
-<view class="shopBox">
-    <view class="listBox" wx:for="{{relatedGoods}}" wx:key="{{id}}">
-        <template is="dialog" data="{{...relatedGoods}}"></template>
+<view class="isShow shopListBargain {{showView?'show':'hide'}}" animation="{{animationData}}">
+    <view class="isShowCon shopBox"> 
+    <!-- <template is="dialog" ></template> -->
+            <view class="listBox" wx:for="{{goods}}" wx:key="name">
+                <image class="picBargain" src ="{{item.list_pic_url}}"/>
+                <view class="txtBargain">
+                    <text class="nameBargain">{{item.name}}</text>
+                    <view class="priceBox">
+                        <text class="price minPrice">￥{{item.retail_price}}</text>
+                    </view>
+                </view>
+            </view>
+        <view class="selectType">
+            <text class="nameType">测试规格</text>
+            <text class="buttonType" wx:for="{{relatedGoods}}" wx:key="">{{item.attribute_category}}</text>
+        </view>
+        <view class="selectType selectNum">
+            <text class="nameType">购买数量</text>
+            <view class="numBox">
+                <text class="minus {{minusStatus}}" bindtap="bindMinus">-</text>
+                 <input class="number" type="number" bindchange="bindManual" value="{{num}}" /> 
+                <text class="plus" bindtap="bindPlus">+</text>
+            </view>
+        </view>
+        <button class="addBtn" data-goodid="{{goods.goodsId}}" bindtap="addCar" formType="submit">加入购物车</button>
     </view>
 </view>
