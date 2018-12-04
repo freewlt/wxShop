@@ -49,24 +49,57 @@
          <image class="arrow" src="/images/index/icon/arrow.png" />
      </view>
      <view class="lineBox doubleLineBox"></view>
+     <!-- 产品介绍 和评价-->
+     <view class="product">
+        <view class="navProduct">
+            <view class="swiper-tab-item {{currentTab==index?'select':''}}" wx:key="" wx:for="{{nameProduct}}" data-current="{{index}}" bindtap="clickTab">
+             {{item.title}}
+             </view>
+        </view>
+        <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+            <swiper-item>
+                <view>热点</view>
+            </swiper-item>
+            <swiper-item>
+                <view>体育</view>
+            </swiper-item>
+            </swiper>
+         </view> 
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
 </view>
 
 <!-- 弹窗 -->
 <view class="isShow shopListBargain {{showView?'show':'hide'}}" animation="{{animationData}}">
     <view class="isShowCon shopBox"> 
     <!-- <template is="dialog" ></template> -->
-            <view class="listBox" wx:for="{{goods}}" wx:key="name">
-                <image class="picBargain" src ="{{item.list_pic_url}}"/>
-                <view class="txtBargain">
-                    <text class="nameBargain">{{item.name}}</text>
-                    <view class="priceBox">
-                        <text class="price minPrice">￥{{item.retail_price}}</text>
-                    </view>
+        <view class="listBox" wx:for="{{goods}}" wx:key="name">
+            <image class="picBargain" src ="{{item.list_pic_url}}"/>
+            <view class="txtBargain">
+                <text class="nameBargain">{{item.name}}</text>
+                <view class="priceBox">
+                    <text class="price minPrice">￥{{item.retail_price}}</text>
                 </view>
             </view>
+        </view>
         <view class="selectType">
             <text class="nameType">测试规格</text>
-            <text class="buttonType" wx:for="{{relatedGoods}}" wx:key="">{{item.attribute_category}}</text>
+            <button class="buttonType {{key == id ? 'active' : ''}}" bindtap="changeGroup" 
+            wx:for="{{goods}}" wx:key="goods" wx:for-index="key"
+            data-id="{{key}}"> {{item.name}}
+            </button>
         </view>
         <view class="selectType selectNum">
             <text class="nameType">购买数量</text>
@@ -76,6 +109,6 @@
                 <text class="plus" bindtap="bindPlus">+</text>
             </view>
         </view>
-        <button class="addBtn" data-goodid="{{goods.goodsId}}" bindtap="addCar" formType="submit">加入购物车</button>
+        <button class="addBtn" data-goodid="{{goods.id}}" bindtap="addCar" formType="submit">加入购物车</button>
     </view>
 </view>

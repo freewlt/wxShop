@@ -113,6 +113,54 @@
     width: 50rpx;
     height: 50rpx;
 }
+.product{
+    clear: both;
+    width: 100%;
+}
+.product .navProduct{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1rpx solid #ccc;
+    text-align: center;
+    font-weight: bold;
+}
+.product .navProduct .swiper-tab-item{
+    display: inline-block;
+    width: 50%;
+    text-align: center
+}
+.product .navProduct .select{
+    color: #a0302f;
+    border-bottom: 2rpx solid #a0302f;
+}
+.picFir{
+    display: block;
+    width: 92%;
+    height: 560rpx;
+    margin: 0 auto;
+    padding: 20rpx 0;
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* 弹窗 */
 .isShow{
@@ -160,7 +208,9 @@
     line-height: 50rpx;
     margin: 15rpx 15rpx 0 0;
     text-align: center;
-    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    background:#fff;
     border-radius: 4rpx;
 }
 .isShowCon .selectNum{
@@ -213,3 +263,9 @@
 .isShowCon .disabled{  
     color: #ccc;  
 }  
+.isShowCon .selectType .active{
+    color: #a0302f; 
+    border:1px solid #a0302f;
+}
+
+    
