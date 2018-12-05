@@ -31,54 +31,61 @@
         </view>
         <view class="num">已团<text>{{id}}件</text></view>
     </view>
-     <view class="lineBox doubleLineBox"></view>
+    <view class="lineBox doubleLineBox"></view>
      <!-- 拼团流程 -->
-     <view class="flow">
-         <text class="title">拼团流程</text>
-            <view class="flowStep" >
-                <view class="flowBlock" wx:for="{{flowStep}}" wx:key="">
-                    <image class="picStep" src="{{item.picStep}}" />
-                    <text class="txtStep">{{item.txtStep}}</text>
-                </view>
+    <view class="flow">
+        <text class="title">拼团流程</text>
+        <view class="flowStep" >
+            <view class="flowBlock" wx:for="{{flowStep}}" wx:key="">
+                <image class="picStep" src="{{item.picStep}}" />
+                <text class="txtStep">{{item.txtStep}}</text>
             </view>
-     </view>
-     <view class="lineBox doubleLineBox"></view>
-     <!-- 拼团流程 -->
-     <view class="flow choosespe" bindtap="choosespe">
-         <text class="title">选择规格：{{chooseTitle}}</text>
-         <image class="arrow" src="/images/index/icon/arrow.png" />
-     </view>
-     <view class="lineBox doubleLineBox"></view>
-     <!-- 产品介绍 和评价-->
-     <view class="product">
-        <view class="navProduct">
-            <view class="swiper-tab-item {{currentTab==index?'select':''}}" wx:key="" wx:for="{{nameProduct}}" data-current="{{index}}" bindtap="clickTab">
-             {{item.title}}
-             </view>
         </view>
-        <swiper current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    </view>
+    <view class="lineBox doubleLineBox"></view>
+     <!-- 拼团流程 -->
+    <view class="flow choosespe" bindtap="choosespe">
+        <text class="title">选择规格：{{chooseTitle}}</text>
+        <image class="arrow" src="/images/index/icon/arrow.png" />
+    </view>
+    <view class="lineBox doubleLineBox"></view>
+     <!-- 产品介绍 和评价-->
+    <view class="product">
+        <view class="navProduct">
+            <view class="swiper-tab-item {{currentTab==index?'select':''}}" wx:key="name" wx:for="{{nameProduct}}" data-current="{{index}}" bindtap="clickTab">
+             {{item.title}}
+            </view>
+        </view>
+        <swiper current="{{currentTab}}" duration="300">
             <swiper-item>
-                <view>热点</view>
+                <view wx:for="{{relatedGoods}}" wx:key="" class="productIntro">
+                    <image src="{{item.list_pic_url}}" class="picIntro"/>
+                    <text class="nameIntro">{{item.name}}</text>    
+                </view>
             </swiper-item>
             <swiper-item>
-                <view>体育</view>
+                <view class="description">
+                    <image class="discuss" src="/images/index/icon/discuss.png" />
+                    <text class="discussTxt">还有人去评论</text>
+                </view>
             </swiper-item>
-            </swiper>
-         </view> 
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </swiper>
+    </view> 
+    <view class="tipDetail">
+        <view class="tipBtn serviceBtn">
+            <image class="service" src="/images/index/icon/service.png"/>
+        </view>
+        <view class="tipBtn collBtn">
+           <image class="collect" src="/images/index/icon/coll.png"/>
+           <!-- <image class="collect" src="/images/icon/star.png" catchtap='onCollectionTap' wx:else/> -->
+        </view>
+        <view class="tipBtn originPrice">
+            <text class="price">￥{{current}}</text>原价购买
+        </view>
+        <view class="tipBtn startGrop">
+            <text class="price">￥{{id}}</text>一键开团
+        </view>
+    </view>
 </view>
 
 <!-- 弹窗 -->

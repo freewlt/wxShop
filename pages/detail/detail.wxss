@@ -116,6 +116,7 @@
 .product{
     clear: both;
     width: 100%;
+    padding: 20rpx 0;
 }
 .product .navProduct{
     display: flex;
@@ -132,27 +133,108 @@
 .product .navProduct .swiper-tab-item{
     display: inline-block;
     width: 50%;
+    height: 100%;
     text-align: center
 }
 .product .navProduct .select{
     color: #a0302f;
     border-bottom: 2rpx solid #a0302f;
 }
-.picFir{
+ 
+.product swiper{
+    min-height: 1400rpx;
+}
+
+.product .productIntro{
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    margin: 0 auto;
+    text-align:center;
+}
+.product .productIntro .picIntro{
+    display: block;
+    width: 92%;
+    height: 200rpx;
+    margin: 0 auto;
+}
+.product .productIntro .nameIntro{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.product .productIntro:first-child, .product .productIntro:last-child {
     display: block;
     width: 92%;
     height: 560rpx;
     margin: 0 auto;
-    padding: 20rpx 0;
 }
- 
+.product .productIntro:first-child .picIntro, .product .productIntro:last-child .picIntro{
+    height: 460rpx;
+}
+.description{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.description .discuss{
+    width: 208rpx;
+    height: 200rpx;
+    padding-top: 80rpx;
+}
+.description .discussTxt{
+    clear: both;
+    float:left;
+    width: 90%;
+    margin:20rpx auto;
+    
+}
+.tipDetail{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width: 100%;
+    height: 80rpx;
+    background: #fff;
+    border-top: 1px solid #eee
+}
+.tipDetail .tipBtn{
+    display: block;
+    float: left;
+    width: 15%;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid #eee;
+}
+.tipDetail .tipBtn:last-child{
+    border-right: none;
+}
 
+.tipDetail .serviceBtn .service, .collBtn .collect{
+    width: 50rpx;
+    height: 50rpx;
+    padding: 15rpx 0;
+}
+.tipDetail .originPrice{
+    width: 29%;
+}
+.tipDetail .startGrop{
+    width: 40%;
+    height: 80rpx;
+    color: #fff;
+    background: #a0302f;
+}
+.tipDetail .originPrice .price{
+    display: block;
+    padding:5rpx 30rpx 0;
 
-
-
-
-
-
+}
+.tipDetail .startGrop .price{
+    display: block;
+    color: #fff;
+    padding:5rpx 0 0;
+}
 
 
 
@@ -165,7 +247,7 @@
 /* 弹窗 */
 .isShow{
     z-index: 12;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
