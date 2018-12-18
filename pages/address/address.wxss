@@ -1,0 +1,40 @@
+/* pages/address/address.wxss */
+.addAddressBox{}
+.information{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 94%;
+    height: 70rpx;
+    line-height: 70rpx;
+    margin: 0 auto;
+    border-bottom: 1px solid #ccc;
+
+}
+.information .infoTit{
+    font-size: 30rpx;
+    min-width: 160rpx;
+}
+.information .infoInpt{
+    flex-grow: 1;
+    border: none;
+    font-size: 30rpx;
+    color: #333;
+    height: 70rpx;
+    line-height: 70rpx;
+}
+.btnGroup{
+    width: 94%;
+    margin: 0 auto;
+}
+.btnGroup button{
+    margin-top: 25rpx;
+}
+.btnGroup .save{
+    color: #fff;
+    background: #e64240;
+}
+.btnGroup .fetch{
+    color: #fff;
+    background: #1aac19;
+}

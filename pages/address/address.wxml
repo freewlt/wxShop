@@ -1,0 +1,28 @@
+<!--pages/address/address.wxml-->
+<view class="addAddressBox">
+    <view class="information">
+        <text class="infoTit">联系人</text>
+        <input class="infoInpt" type="text" placeholder="姓名"/>
+    </view>
+    <view class="information">
+        <text class="infoTit">手机号码</text>
+        <input class="infoInpt" type="text" placeholder="11位手机号码" :value="{{userName}}"/>
+    </view>
+    <view class="information">
+        <text class="infoTit">选择地区</text>
+        <input class="infoInpt" type="text" placeholder="请选择 请选择 请选择"/>
+    </view>
+    <view class="information">
+        <text class="infoTit">详细地址</text>
+        <input class="infoInpt" type="text" placeholder="接到门牌信息"/>
+    </view>
+    <view class="information">
+        <text class="infoTit">邮政编号</text>
+        <input class="infoInpt" type="text" placeholder="如需备注请输入"/>
+    </view>
+    <view class="btnGroup">
+        <button class="save">保存</button>
+        <button class="fetch" bindtap="chooseAddress">从微信中读取</button>
+        <button class="primary">取消</button>
+    </view>
+</view>

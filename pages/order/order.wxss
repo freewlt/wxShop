@@ -1,0 +1,130 @@
+/* pages/order/order.wxss */
+@import '/pages/index/index.wxss';
+@import "/pages/detail/detail.wxss";
+.orderBox{
+    position: relative;
+}
+.addAddress{
+    clear: both;
+    width: 92%;
+    padding: 2% 4%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center ;
+    border-bottom: 1px solid #ccc;
+}
+.addBtn{
+    width: 50rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    background:#3384f9;
+    color:#fff;
+    font-size: 40rpx;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 6rpx;
+    margin-right: 15rpx;
+}
+ .addTxt{
+    flex-grow: 1;
+    font-size: 30rpx;
+}
+.arrow{
+    width: 32rpx;
+    height: 32rpx
+}
+.lineBox{
+    z-index: 11;
+    position: relative;
+    height: 10rpx;
+    background: #f2f2f2;
+}
+.orderBox .orderList{
+    overflow: hidden;
+}
+.orderBox .orderList .listTit{
+    height: 80rpx;
+    line-height: 80rpx;
+    border-bottom: 1px solid #ccc;
+}
+.orderBox .orderList .title{
+    width: 92%;
+    padding: 0 4%;
+    text-align: left;
+    font-size: 34rpx;
+}
+.orderBox .shopBox .listBox .txtBargain {
+    width: 48%;  
+}
+.orderBox .listBox .nameBargain{
+    height: 70rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    font-size: 26rpx;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+    
+.orderBox .listBox .price{
+    position: absolute;
+    top: 20rpx;
+    right: 34rpx;
+    font-weight: bold;
+}
+.orderBox .listBox .number{
+    position: absolute;
+    bottom: 40rpx;
+    right: 34rpx;
+    color: #989898;
+}
+.orderMessage .orderMes{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 70rpx;
+    line-height: 70rpx;
+    border-bottom: 1px solid #ccc;
+}
+.orderMessage .orderMes:last-child{
+    border: none
+}
+.orderMessage text{
+    font-size: 30rpx;
+}
+.orderMessage .sendType {
+    padding-right: 30rpx;
+}
+.orderMessage .orderMName{
+    padding-left: 30rpx;
+}
+.remark .remarkInput{
+    border: none;
+    height: 100%;
+    font-size: 30rpx;
+}
+.orderPriceBox .sendType{
+    border: none;
+}
+.orderBox .tipDetail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    line-height: 100rpx;
+}
+    
+.orderBox .tipDetail .originPrice {
+    width: 60%;
+    padding-right: 20rpx;
+    border: none;
+    text-align: right;  
+    color: #a0302f;
+}
+.orderBox  .tipDetail .startGrop {
+    width: 40%; 
+}
+.orderBox .tipDetail .price{
+    padding: 0
+}

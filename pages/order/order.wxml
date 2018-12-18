@@ -1,0 +1,58 @@
+<!--pages/order/order.wxml-->
+<view class="orderBox">
+    <view class="addAddress" bindtap="addAddress">
+        <view class="addBtn">+</view>
+        <text class="addTxt">新增收货地址</text>
+        <image class="arrow" src="/images/arrowRt.png"/>
+    </view>
+    <view class="lineBox"></view>
+    <view class="orderList">
+         <view  class="listTit">
+             <text class="title">商品列表</text>
+         </view>   
+        <view class="shopList shopListBargain">
+            <view class="shopBox">
+            <block wx:for="{{list}}" wx:key="name">
+                <view class="listBox">
+                    <image class="picBargain" src ="{{item.list_pic_url}}"/>
+                    <view class="txtBargain">
+                        <text class="nameBargain">{{item.name}}</text>
+                    </view>
+                    <view>
+                        <text class="price">￥{{item.market_price}} </text>
+                    </view>
+                    <view>
+                        <text class="number">X{{item.goods_number}} </text>
+                    </view>
+                </view>
+            </block>
+            </view>
+        </view>
+    </view>
+    <view class="lineBox"></view>
+    <view class="orderMessage">
+        <view class="orderMes sendTypeBox">
+            <text class="orderMName">配送方式</text>
+            <text class="sendType">包邮</text>
+        </view>
+        <view class="orderMes remark">
+            <text class="orderMName">备注</text>
+            <input class="remarkInput" type="text" placeholder="如需备注请输入"/>
+        </view>
+    </view>
+    <view class="lineBox"></view>
+    <view class="orderMessage orderPriceBox">
+        <view class="orderMes sendTypeBox">
+            <text class="orderMName">商品金额</text>
+            <text class="sendType">￥{{price}}</text>
+        </view>
+    </view>
+    <view class="tipDetail">
+        <view class="tipBtn originPrice" bindtap="buyResource">
+            <text class="price">合计: ￥{{price}}</text>
+        </view>
+        <view class="tipBtn startGrop" bindtap="startGrop">
+            <text class="price">提交订单</text>
+        </view>
+    </view>
+</view>

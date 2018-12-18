@@ -72,25 +72,26 @@
         </swiper>
     </view> 
     <view class="tipDetail">
-        <view class="tipBtn serviceBtn">
+        <button class="tipBtn serviceBtn" open-type="contact" >
             <image class="service" src="/images/index/icon/service.png"/>
+        </button>
+        <view class="tipBtn collBtn" catchtap="onCollectionTap">
+            <image  class="collect" catchtap='onCollectionTap' wx:if="{{isCollect}}" src="/images/index/icon/coll.png"/>
+            <image class="collect" catchtap='onCollectionTap'  wx:else src="/images/index/icon/coll-off.png"/>
         </view>
-        <view class="tipBtn collBtn">
-           <image class="collect" src="/images/index/icon/coll.png"/>
-           <!-- <image class="collect" src="/images/icon/star.png" catchtap='onCollectionTap' wx:else/> -->
-        </view>
-        <view class="tipBtn originPrice">
+        <view class="tipBtn originPrice" bindtap="buyResource">
             <text class="price">￥{{current}}</text>原价购买
         </view>
-        <view class="tipBtn startGrop">
+        <view class="tipBtn startGrop" bindtap="startGrop">
             <text class="price">￥{{id}}</text>一键开团
         </view>
     </view>
 </view>
 
 <!-- 弹窗 -->
-<view class="isShow shopListBargain {{showView?'show':'hide'}}" animation="{{animationData}}">
-    <view class="isShowCon shopBox"> 
+<view class="isShow shopListBargain {{showView?'show':'hide'}}" animation="{{animationData}}" data-postid="1">
+    <view class="isShowCon shopBox">
+    <view class="close" catchtap="closeShow">X</view> 
     <!-- <template is="dialog" ></template> -->
         <view class="listBox" wx:for="{{goods}}" wx:key="name">
             <image class="picBargain" src ="{{item.list_pic_url}}"/>
@@ -115,7 +116,9 @@
                  <input class="number" type="number" bindchange="bindManual" value="{{num}}" /> 
                 <text class="plus" bindtap="bindPlus">+</text>
             </view>
-        </view>
-        <button class="addBtn" data-goodid="{{goods.id}}" bindtap="addCar" formType="submit">加入购物车</button>
+        </view>      
+        <button class="addBtn" data-goodid="{{goods.id}}" wx:if="{{isStart}}" bindtap="buyNow" formType="submit">立即开团</button>
+        <button class="addBtn" data-goodid="{{goods.id}}" wx:if="{{isBuy}}" bindtap="buyNow" formType="submit">立即购买</button>
+        <button class="addBtn" data-goodid="{{goods.id}}" wx:if="{{isAdd}}" bindtap="addCar" formType="submit">加入购物车</button>
     </view>
 </view>
