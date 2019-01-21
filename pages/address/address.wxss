@@ -1,5 +1,4 @@
 /* pages/address/address.wxss */
-.addAddressBox{}
 .information{
     display: flex;
     flex-direction: row;

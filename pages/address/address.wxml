@@ -1,13 +1,13 @@
 <!--pages/address/address.wxml-->
 <view class="addAddressBox">
-    <form bindsubmit="formSubmit">
+    <form bindreset="formReset" bindsubmit="formSubmit">
         <view class="information">
             <text class="infoTit">联系人</text>
-            <input class="infoInpt" type="text" placeholder="姓名"  value="{{add_serName}}"/>
+            <input class="infoInpt" name="userName" type="text" placeholder="姓名"  value="{{userName}}{{add_serName}}"/>
         </view>
         <view class="information">
             <text class="infoTit">手机号码</text>
-            <input class="infoInpt" type="text" placeholder="11位手机号码" value="{{add_telNumber}}"/>
+            <input class="infoInpt" name="phone" type="text" placeholder="11位手机号码" value="{{add_telNumber}}"/>
         </view>
         <view class="information" bindtap="selectDistrict">
             <text class="infoTit">选择地区</text>
@@ -15,14 +15,14 @@
         </view>
         <view class="information">
             <text class="infoTit">详细地址</text>
-            <input class="infoInpt" type="text" placeholder="接到门牌信息" value="{{add_detailInfo}}"/>
+            <input class="infoInpt" name="detail" type="text" placeholder="街道门牌信息" value="{{add_detailInfo}}"/>
         </view>
         <view class="information">
             <text class="infoTit">邮政编号</text>
             <input class="infoInpt" type="text" placeholder="如需备注请输入" value="{{add_postalCode}}"/>
         </view>
         <view class="btnGroup">
-            <button class="save" form-type="submit">保存</button>
+            <button class="save" formType="submit" disabled="{{disabled}}">保存</button>
             <button class="fetch" bindtap="chooseAddress">从微信中读取</button>
             <button class="primary" formType="reset">取消</button>
         </view>

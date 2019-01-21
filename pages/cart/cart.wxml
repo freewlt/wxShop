@@ -21,7 +21,7 @@
 
   <view class="separate"></view>
 
-  <view wx:for="{{carts}}">
+  <view wx:for="{{carts}}" wx:key="">
 
     <view class="cart_container">  
 

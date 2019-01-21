@@ -5,15 +5,15 @@ const api = require('../../config/api.js');
 
 Page({
   data:{
-    add_serName: '',
     add_telNumber: '',
     add_detailInfo: '',
     add_postalCode: '',
     animationAddressMenu: {},
     addressMenuIsShow: false,
     value: [0, 0, 0],
-    areaInfo:''
-
+    areaInfo:'',
+    disabled: false,
+    error: '',
   },
   chooseAddress:function(){
     var that = this;
@@ -49,8 +49,12 @@ Page({
   // 点击所在地区弹出选择框
   selectDistrict: function (e) {
     var that = this;
+    var id = address.provinces[0].id;
     that.setData({
       addressMenuIsShow: true,
+      provinces: address.provinces,
+      citys: address.citys[id],
+      areas: address.areas[address.citys[id][0].id],
     })
   },
 
@@ -114,45 +118,94 @@ Page({
       })
     }
   },
+
   formSubmit: function(e) { 
     var that = this;
-    let address = that.data;
-    var phone = address.add_telNumber;
-    console.log(address) 
-    // if (address.add_serName == '' && address.add_telNumber == '' && address.areaInfo == '' && address.add_detailInfo =='') {
-    //   console.log(address)
-    //   wx.showToast({
-    //     title: '请输入完整信息！',
-    //     icon: 'none',
-    //     image:"/images/fail.png",
-    //     duration: 1000
-    //   })
-    //   return false;
-    // }else{
-    //   wx.navigateTo({
-    //     url:'../../pages/order/order'
-    //   })
-    // }
-    // console.log(phone)
-    // if((/^1[34578]\d{9}$/.test(phone)) && phone.length < 11){
-    //   wx.navigateTo({
-    //     url:'../../pages/order/order'
-    //   })
-    // }else{
-    //   wx.showToast({
-    //     title: '手机号有误！',
-    //     icon: 'none',
-    //     image:"/images/fail.png",
-    //     duration: 1000
-    //   })
-    // }
+    // let address = that.data;
+    // let userName = e.detail.value.userName;
+    // let phone = address.add_telNumber;
+
+    var values = e.detail.value;
+    values.areaInfo = this.data.areaInfo;
+
+    // 表单验证
+    if (!that.validation(values)) {
+      wx.showToast({
+        title: that.data.error,
+        image: '/images/fail.png',
+        duration: 2000
+      })
+      return false;
+    }
+
+    wx.request({
+      url:  'order_id=',
+      data: {
+        'order_id': values
+      },
+      header:{
+        "content-type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res);
+        if (res.data.ret == 200) {
+         //something to do
+        }
+        else{
+         //something to do
+        }
+      },
+      fail: function (res) {
+        console.log(res);
+      }
+    });
+
+
   },  
-  onLoad: function(){
+
+
+   /**
+   * 表单验证
+   */
+  validation: function (values) {
+    if (values.userName === '') {
+      this.data.error = '收件人不能为空';
+      return false;
+    }
+    if (values.phone.length < 1) {
+      this.data.error = '手机号不能为空';
+      return false;
+    }
+    if (values.phone.length !== 11) {
+      this.data.error = '手机号长度有误';
+      return false;
+    }
+    let reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    if (!reg.test(values.phone)) {
+      this.data.error = '手机号不符合要求';
+      return false;
+    }
+    if (!this.data.areaInfo) {
+      this.data.error = '省市区不能空';
+      return false;
+    }
+    if (values.detail === '') {
+      this.data.error = '详细地址不能为空';
+      return false;
+    }
+    return true;
+  },
+
+
+  onLoad: function(e){
     var id = address.provinces[0].id;
     this.setData({
       provinces: address.provinces,
       citys: address.citys[id],
       areas: address.areas[address.citys[id][0].id],
     })
+  
+
   }
 })

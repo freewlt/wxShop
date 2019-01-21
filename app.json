@@ -7,6 +7,7 @@
     "pages/detail/detail",
     "pages/order/order",
     "pages/address/address",
+    "pages/addAddresss/addAddress",
     "pages/cart/cart",
     "pages/logs/logs",
     "pages/template/dialog"
