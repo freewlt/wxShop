@@ -1,0 +1,27 @@
+<!--pages/pay/pay.wxml-->
+<view class="payBox">
+    <view class="addressDetail payDetail">
+        <view class="addressPic"><image src="../../images/address.png"/></view>
+        <view class="addTxtBox">
+            <view class="namePhone">
+                <text class="name">商品总额：</text>
+                <text class="phone red">￥{{totalMoney}}</text>
+                </view>
+            <view class="address">订单号：{{orderNum}}</view>
+        </view>
+    </view>  
+    <view class="lineBox"></view>
+    <view class="addressDetail address">
+        <view class="addressPic"><image src="../../images/address.png"/></view>
+        <view class="addTxtBox">
+            <view class="namePhone">
+                <text class="name">{{userName}}</text>
+                <text class="phone">{{phone}}</text>
+                </view>
+            <view class="address">{{address}}</view>
+        </view>
+    </view>
+    <view class="btnBox" bindtap="payBtn">
+        <button class="payBtn">微信支付{{totalMoney}}元</button>
+    </view>  
+</view>

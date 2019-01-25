@@ -1,0 +1,51 @@
+/* pages/pay/pay.wxss */
+.payBox .addressDetail{
+    clear:both;
+    width:92%;
+    padding:2% 4%;  
+    border-top: 1px solid #f2f2f2
+}
+.payBox .addressDetail .addressPic,.payBox .addressDetail .addTxtBox{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #999;
+}
+.payBox .addressDetail .addTxtBox .name{
+    display: inline-block;
+    vertical-align: middle;
+    color: #333;
+}
+.payBox .addressDetail .addTxtBox .phone{
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10rpx;
+    color: #333;
+}
+.payBox .addressDetail .addressPic image{
+    width: 50rpx;
+    height: 50rpx;
+}
+.red{
+    color: red
+}
+.lineBox{
+    z-index: 11;
+    position: relative;
+    height: 10rpx;
+    background: #f2f2f2;
+}
+.btnBox{
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height:100rpx;
+}
+.btnBox .payBtn{
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background:#a0302f;
+    border-radius: 0 
+}

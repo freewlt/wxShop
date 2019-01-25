@@ -5,6 +5,7 @@ const api = require('../../config/api.js');
 
 Page({
   data:{
+    add_serName:'',
     add_telNumber: '',
     add_detailInfo: '',
     add_postalCode: '',
@@ -121,12 +122,13 @@ Page({
 
   formSubmit: function(e) { 
     var that = this;
-    // let address = that.data;
-    // let userName = e.detail.value.userName;
-    // let phone = address.add_telNumber;
+    let userName = that.data.add_serName;
+    let phone = that.data.add_telNumber;
+    let areaInfo = that.data.areaInfo;
+    let detail = that.data.add_detailInfo;
 
     var values = e.detail.value;
-    values.areaInfo = this.data.areaInfo;
+    values.areaInfo = that.data.areaInfo;
 
     // 表单验证
     if (!that.validation(values)) {
@@ -137,31 +139,12 @@ Page({
       })
       return false;
     }
-
-    wx.request({
-      url:  'order_id=',
-      data: {
-        'order_id': values
-      },
-      header:{
-        "content-type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res);
-        if (res.data.ret == 200) {
-         //something to do
-        }
-        else{
-         //something to do
-        }
-      },
-      fail: function (res) {
-        console.log(res);
-      }
+    util.request(api.IndexUrlHotGoods,{phone: phone,userName:userName,detail:detail,areaInfo:areaInfo,addBtn:false}).then(function (res) {
+      var address = areaInfo + detail
+      wx.navigateTo({
+        url:'../order/order?phone='+ phone + '&&userName=' + userName + '&&address=' + address + '&&addBtn=false'
+      })
     });
-
-
   },  
 
 
@@ -169,7 +152,7 @@ Page({
    * 表单验证
    */
   validation: function (values) {
-    if (values.userName === '') {
+    if (values.add_serName === '') {
       this.data.error = '收件人不能为空';
       return false;
     }
@@ -177,15 +160,15 @@ Page({
       this.data.error = '手机号不能为空';
       return false;
     }
-    if (values.phone.length !== 11) {
-      this.data.error = '手机号长度有误';
-      return false;
-    }
-    let reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
-    if (!reg.test(values.phone)) {
-      this.data.error = '手机号不符合要求';
-      return false;
-    }
+    // if (values.phone.length !== 11) {
+    //   this.data.error = '手机号长度有误';
+    //   return false;
+    // }
+    // let reg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1})|(17[0-9]{1}))+\d{8})$/;
+    // if (!reg.test(values.phone)) {
+    //   this.data.error = '手机号不符合要求';
+    //   return false;
+    // }
     if (!this.data.areaInfo) {
       this.data.error = '省市区不能空';
       return false;
@@ -205,7 +188,5 @@ Page({
       citys: address.citys[id],
       areas: address.areas[address.citys[id][0].id],
     })
-  
-
   }
 })

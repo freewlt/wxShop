@@ -1,11 +1,27 @@
 <!--pages/order/order.wxml-->
 <view class="orderBox">
-    <view class="addAddress" bindtap="addAddress">
-        <view class="addBtn">+</view>
-        <text class="addTxt">新增收货地址</text>
-        <image class="arrow" src="/images/arrowRt.png"/>
+    <view class="addAddress" bindtap="addAddress" >
+         <!-- 默认增加地址按钮 -->
+        <view class="defaultChoose" wx:if="{{addBtn}}">
+            <view class="addBtn">+</view>
+            <text class="addTxt">新增收货地址</text>
+            <image class="arrow" src="/images/arrowRt.png"/>
+        </view>
+         <!-- 添加的地址 -->
+        <view class="addressChoose" wx:else>
+            <view class="addressPic"><image src="../../images/address.png"/></view>
+            <view class="addTxtBox">
+               <view class="namePhone">
+                   <text class="name">{{userName}}</text>
+                   <text class="phone">{{phone}}</text>
+                   </view>
+                <view class="address">{{address}}</view>
+            </view>
+            <image class="arrow" src="/images/arrowRt.png"/>
+        </view>
     </view>
     <view class="lineBox"></view>
+    <!-- 商品列表 -->
     <view class="orderList">
          <view  class="listTit">
              <text class="title">商品列表</text>
@@ -48,7 +64,7 @@
         </view>
     </view>
     <view class="tipDetail">
-        <view class="tipBtn originPrice" bindtap="buyResource">
+        <view class="tipBtn originPrice">
             <text class="price">合计: ￥{{price}}</text>
         </view>
         <view class="tipBtn startGrop" bindtap="startGrop">

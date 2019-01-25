@@ -3,7 +3,7 @@
     <form bindreset="formReset" bindsubmit="formSubmit">
         <view class="information">
             <text class="infoTit">联系人</text>
-            <input class="infoInpt" name="userName" type="text" placeholder="姓名"  value="{{userName}}{{add_serName}}"/>
+            <input class="infoInpt" name="userName" type="text" placeholder="姓名"  value="{{add_serName}}"/>
         </view>
         <view class="information">
             <text class="infoTit">手机号码</text>
