@@ -1,0 +1,37 @@
+<!--pages/classification/classification.wxml-->
+<view class="classification">
+    <ul class="left">
+        <li class='menu  {{currentData == 0 ? "tabBorer" : ""}}'  data-current = "0" bindtap='checkCurrent'>所有分类</li>
+        <li class='menu  {{currentData == 1 ? "tabBorer" : ""}}'  data-current = "1" bindtap='checkCurrent'>居家生活</li>
+        <li class='menu  {{currentData == 2 ? "tabBorer" : ""}}'  data-current = "2" bindtap='checkCurrent'>配件服饰</li>
+        <li class='menu  {{currentData == 3 ? "tabBorer" : ""}}'  data-current = "3" bindtap='checkCurrent'>新品服装</li>
+    </ul>
+    <view class="right">
+        <swiper current="{{currentData}}" class='rightItem swiper'  duration="300" bindchange="bindchange">
+            <swiper-item>
+                <view class='swiper_con'  wx:for="{{listAll}}" wx:key="" bindtap="typeBtn">
+                    <image class="pic" src="{{item.list_pic_url}}"/>
+                    <text class="txt">{{item.name}}</text>
+                </view>
+            </swiper-item> 
+            <swiper-item>
+                <view class='swiper_con'  wx:for="{{listFam}}" wx:key="" bindtap="typeBtn">
+                    <image class="pic" src="{{item.list_pic_url}}"/>
+                    <text class="txt">{{item.name}}</text>
+                </view>
+            </swiper-item>
+            <swiper-item> 
+                <view class='swiper_con'  wx:for="{{listPar}}" wx:key="" bindtap="typeBtn">
+                    <image class="pic" src="{{item.list_pic_url}}"/>
+                    <text class="txt">{{item.name}}</text>
+                </view>
+            </swiper-item>  
+            <swiper-item>
+                <view class='swiper_con'  wx:for="{{listNew}}" wx:key="" bindtap="typeBtn">
+                    <image class="pic" src="{{item.list_pic_url}}"/>
+                    <text class="txt">{{item.name}}</text>
+                </view>
+            </swiper-item>  
+        </swiper>
+    </view>
+</view>

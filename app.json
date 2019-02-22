@@ -1,8 +1,5 @@
 {
   "pages": [
-    "pages/order/order",
-    "pages/address/address",
-    "pages/pay/pay",
     "pages/login/login",
     "pages/index/index",
     "pages/bargain/bargain",
@@ -10,6 +7,12 @@
     "pages/detail/detail",
     "pages/addAddresss/addAddress",
     "pages/cart/cart",
+    "pages/goCart/goCart",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/pay/pay",
+    "pages/classification/classification",
+    "pages/typeShop/typeShop",
     "pages/logs/logs",
     "pages/template/dialog"
   ],
@@ -30,19 +33,19 @@
         "selectedIconPath": "images/nav/home-on.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/classification/classification",
         "text": "分类",
         "iconPath": "images/nav/order-off.png",
         "selectedIconPath": "images/nav/order-on.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/goCart/goCart",
         "text": "购物车",
         "iconPath": "images/nav/cart-off.png",
         "selectedIconPath": "images/nav/cart-on.png"
       },
       {
-        "pagePath": "pages/logs/logs",
+        "pagePath": "pages/personal/personal",
         "text": "个人",
         "iconPath": "images/nav/my-off.png",
         "selectedIconPath": "images/nav/my-on.png"

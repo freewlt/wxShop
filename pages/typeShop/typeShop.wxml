@@ -1,0 +1,12 @@
+<!--pages/typeShop/typeShop.wxml-->
+ <view class="shopList moods">
+    <view class="shopBox">
+        <view class="listBox" wx:for="{{hotGoods}}" wx:key="name" bindtap="herfBtn">
+            <!-- <template is = "moods" data="{{...moods}}"/> -->
+            <image class="picBargain" src ="{{item.list_pic_url}}"/>
+            <text class="title"> {{item.name}}</text>
+            <text class="types"> {{item.goods_brief}}</text>
+            <text class="price"> ￥{{item.retail_price}}</text>
+        </view>
+    </view>
+</view>

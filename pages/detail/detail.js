@@ -182,6 +182,27 @@ Page({
       })
   },
   // 加入购物车
+  // addCar:function(e){
+  //   var that = this;
+  //   var goods = that.data.goods;
+  //   var id = that.data.goods[0].id;
+  //   goods.isSelect = false;
+  //   var count = that.data.goods[0].num;
+  //   var title = that.data.goods[0].name;
+  //   //util.request(api.CartUpdate).then((res)=>{
+  //   util.request(api.CartList).then((res)=>{
+  //     console.log("1")
+  //     if(res.errno===0){
+  //       console.log("1")
+  //     }
+  //   })
+  //   // util.request(api.GoodsRelated,{totalMoney: totalMoney}).then(function (res) {
+  //       // wx.navigateTo({
+  //       //   url:'../detail/detail?totalMoney='+ totalMoney 
+  //       // });
+     
+  //   //});
+  // },
   addCar: function (e) {
     var that = this;
     var goods = that.data.goods;
@@ -216,7 +237,6 @@ Page({
       return
     } catch(e){
       console.log(e) 
-
     }
   },
 

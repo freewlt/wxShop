@@ -1,0 +1,61 @@
+/* pages/classification/classification.wxss */
+page{
+    height: 100%
+}
+.classification{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-top: 1px solid #f2f2f2;
+    font-size: 30rpx;
+}
+.classification .left{
+    flex-grow:0;
+    width: 30%;
+    height: 100%;
+    box-sizing: border-box;
+    border-right: 1px solid #f2f2f2;
+   
+}
+.classification .left li{
+    display:block;
+    width: 100%;
+    text-align:center;
+    padding:20rpx 0 15rpx 0;
+}
+.classification .right{
+    flex-grow:2;
+}
+.tabBorer{
+    border-left: 1px solid #a0302f;
+     color: #a0302f;
+}
+.swiper{
+    width: 100%;
+    height: 100%;
+    padding-bottom: 50rpx;
+}
+.swiper_con{
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    width: 33%;
+    padding: 20rpx 0 10rpx 0;
+    text-align: center;
+}
+.swiper_con .pic{
+    display: block;
+    width:160rpx;
+    height:160rpx;
+
+}
+.swiper_con .txt{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 30rpx;
+
+}

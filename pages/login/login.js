@@ -1,6 +1,8 @@
 //login.js
 
 //获取应用实例
+const util = require('../../utils/util.js');
+const api = require('../../config/api.js');
 const app = getApp()
 
 Page({
@@ -25,6 +27,9 @@ Page({
           userInfo: res.userInfo,
           hasUserInfo: true
         })
+        wx.setStorageSync('userInfo',  res.userInfo);
+        wx.setStorageSync('token', res.token);
+        wx.setStorageSync('userId',  res.userId);
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -46,12 +51,25 @@ Page({
       hasUserInfo: true
     })
   },
-  register:function(){
-    if(app.globalData.userInfo){
-      wx.switchTab({
-        "url": '/pages/index/index'
-      })
-    }
+  register:function(e){
+    let that = this;
+    wx.login({
+      success:function(res){
+        console.log(res)
+        //存储用户信息
+        
+        if(app.globalData.userInfo){
+          wx.switchTab({
+            "url": '/pages/index/index'
+          })
+        }
+        // if(res.code){
+        //   util.request(api.AuthLoginByWeixin).then((res)=>{
+        //     console.log(res)
+        //   })
+        // }
+      }
+    })
   },
   onLoad: function () {
     this.getIndexData();

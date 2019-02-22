@@ -4,12 +4,11 @@ App({
   wxValidate: (rules, messages) => new wxValidate(rules,messages),
   
   onLaunch: function () {
-
+    //wx.clearStorage()
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {

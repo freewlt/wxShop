@@ -1,0 +1,38 @@
+/* pages/typeShop/typeShop.wxss */
+.shopBox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.shopBox .listBox{
+    position: relative;
+    width: 50%; 
+    padding: 0 30rpx;
+    box-sizing: border-box;
+}
+.listBox text{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 26rpx;
+}
+.listBox .title{
+    width:100%;
+    padding: 16rpx 0 0;
+}
+.listBox .types{
+    color: #999;
+}
+.listBox .feature{
+    display: inline;
+    padding: 5rpx 10rpx;
+    background:#b3a078;
+    color: #fff;
+    font-size: 22rpx;
+    border-radius: 10rpx;
+}
+.listBox .picBargain{
+    width:200rpx;
+    height:180rpx;
+}
